@@ -3,7 +3,7 @@ public:
     void nextPermutation(vector<int>& nums) {
         stack<int> st;
         vector<int> v(nums.size()) ;
-        for(int i=0 ; i<nums.size() ; i++){
+        for(int i=0 ; i<nums.size() ; i++){ // prev smaller ele
             while(st.size()>0 && nums[st.top()]>=nums[i]) st.pop();
             if(st.size()>0){
                 v[i] = st.top();
@@ -14,7 +14,7 @@ public:
             st.push(i);
         }
         int a = -1 , b = -1 ;
-        for(int i=v.size()-1 ; i>=0 ; i--){
+        for(int i=v.size()-1 ; i>=0 ; i--){ 
             if(v[i] != -1){
                 if(a == -1 && b == -1){
                     a = v[i];
